@@ -1,0 +1,74 @@
+/* Layout from alw-web-sketch.pdf. The original header is retained. */
+.sketch-services { display:block; width:auto; height:auto; margin:0 12px; padding-top:100px; font-family:"adobe-caslon-pro",serif; color:#000; }
+.sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a { font-size:17px; line-height:1.2; font-weight:400; color:#000; text-align:left; }
+.sketch-services h2, .sketch-services h3 { margin:0 0 18px; }
+.sketch-services p { margin:0 0 18px; }
+.sketch-services .narrow, .sketch-services .section-intro { width:46%; margin-left:calc(35.5vw - 12px); max-width:610px; }
+.sketch-services .intro, .sketch-services .about-services { display:block; padding:0; border:0; margin:0; }
+.sketch-services .intro > div:first-child { max-width:none; }
+.sketch-services .intro h2 { max-width:none; }
+.sketch-services .opening-copy { padding-bottom:52px; }
+.sketch-services #credits { border:0; padding:0; margin:32px 0 0; background:none; }
+.sketch-services #credits .columns { display:block; }
+.sketch-services #credits article { display:block; margin-bottom:32px; }
+.sketch-services #credits article:last-child { margin-bottom:0; }
+.sketch-services #credits h3 { font-size:17px; margin:0 0 3px; }
+.sketch-services #credits p { color:#000; margin:0; }
+.sketch-services #credits .eyebrow { font-family:"Messina Sans",sans-serif; font-size:10px; margin:0 0 12px; text-transform:uppercase; }
+.sketch-services .ruled-section { border-top:1px solid #000; padding-top:44px; margin:0; scroll-margin-top:100px; }
+.sketch-services .about-services p + p { margin-top:0; }
+.sketch-services .principles { padding:26px 0 42px; }
+.sketch-services .principles article { margin-bottom:20px; }
+.sketch-services .principles h3 { margin:0 0 3px; }
+.sketch-services .principles p { margin:0; }
+.sketch-services .section-intro { padding-bottom:34px; }
+.sketch-services .section-label { margin-bottom:24px; }
+.sketch-services .section-lead { max-width:none; margin-bottom:0; }
+.sketch-services .offer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-rows:1fr; }
+.sketch-services .offer-grid article { display:flex; flex-direction:column; padding:20px 24px; border-right:1px solid #000; min-width:0; }
+.sketch-services .offer-grid article:nth-child(3n) { border-right:0; }
+.sketch-services .offer-grid article:nth-child(n+4) { border-top:1px solid #000; }
+.sketch-services .offer-grid:has(article:nth-child(4)) { background:linear-gradient(#000,#000) left 50%/100% 1px no-repeat; }
+.sketch-services .offer-grid h3 { margin-bottom:20px; }
+.sketch-services .offer-grid p { margin:0 0 20px; }
+.sketch-services .offer-grid .price { margin: auto 0 0; padding-top:10px; }
+.sketch-services .process-title { margin:60px 0 40px calc(35.5vw - 12px); }
+.sketch-services .process-grid article { min-height:200px; }
+.sketch-services .process-grid h3 { margin-bottom:50px; }
+.sketch-services .process-grid p { margin-top:auto; margin-bottom:0; }
+.sketch-services .step-number { display:inline; margin-right:8px; }
+.sketch-services .billing-note { grid-column:3; grid-row:2; align-self:end; font-size:12px; padding:20px 24px; margin:0; }
+.sketch-services #styling { padding-bottom:44px; }
+.sketch-services #contact { border:0; padding:0; margin-bottom:110px; scroll-margin-top:100px; }
+.sketch-services .contact-email { display:inline-block; font-size:17px; margin-top:20px; }
+.sketch-services > footer { display:flex; justify-content:space-between; gap:24px; font-size:12px; padding:0 0 30px; }
+@media(max-width:1100px) { .sketch-services { padding-top:150px; } }
+@media(max-width:810px) {
+ .sketch-services { margin:0 20px; padding-top:145px; }
+ .sketch-services .narrow, .sketch-services .section-intro { width:100%; max-width:none; margin-left:0; }
+ .sketch-services .offer-grid { grid-template-columns:1fr; grid-auto-rows:auto; background:none!important; }
+ .sketch-services .offer-grid article { border-right:0; border-top:1px solid #000; padding:24px 0; }
+ .sketch-services .process-title { margin:40px 0 24px; }
+ .sketch-services .process-grid article { min-height:0; }
+ .sketch-services .process-grid h3 { margin-bottom:20px; }
+ .sketch-services .billing-note { grid-column:1; grid-row:auto; padding:20px 0; }
+ .sketch-services > footer { flex-direction:column; gap:6px; }
+}
+@media(max-width:810px) {
+ .opening-page .opening-nav { position:fixed; inset:105px 20px auto; justify-content:flex-start; gap:28px; font-size:40px; line-height:1.1; }
+ .opening-page .opening-nav > a { min-height:44px; }
+}
+/* Main copy uses the art site's 27px scale; compact details use its 17px scale. */
+.sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a { font-size:27px; line-height:1.1; }
+.sketch-services .principles p, .sketch-services .principles h3 { font-size:17px; line-height:1.2; }
+.sketch-services #credits h3, .sketch-services #credits p { font-size:27px; }
+.sketch-services #credits .eyebrow { font-size:12px; color:#000; }
+.sketch-services .billing-note, .sketch-services > footer { font-size:17px; line-height:1.2; }
+.sketch-services .contact-email { font-size:27px; }
+@media(max-width:810px) {
+ .sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a,
+ .sketch-services #credits h3, .sketch-services #credits p, .sketch-services .contact-email { font-size:20px; }
+ .sketch-services .principles p, .sketch-services .principles h3, .sketch-services .billing-note { font-size:17px; }
+ .sketch-services #credits .eyebrow { font-size:12px; }
+}
+.sketch-services #consulting.ruled-section, .sketch-services #teams.ruled-section, .sketch-services #styling.ruled-section { border-top:1px solid #000; padding-top:44px; }
