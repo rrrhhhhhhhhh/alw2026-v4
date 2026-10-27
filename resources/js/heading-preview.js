@@ -7,7 +7,7 @@
   if (reduced.matches || overlay.classList.contains('is-visible')) return;
   overlay.textContent = button.textContent;
   overlay.classList.add('is-visible');
-  timer = setTimeout(hide, 1100);
+  timer = setTimeout(hide, 2000);
  };
  document.querySelectorAll('.heading-preview').forEach(button => {
   button.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') show(button); });
@@ -15,4 +15,19 @@
  });
  document.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
  window.addEventListener('scroll', hide, {passive:true});
+})();
+
+// Align only standalone text sections with the header navigation; grids do not move.
+(() => {
+ const main = document.querySelector('.sketch-services');
+ const nav = document.querySelector('.section-nav');
+ if (!main || !nav) return;
+ const align = () => {
+  const offset = Math.max(0, nav.getBoundingClientRect().left - main.getBoundingClientRect().left);
+  main.style.setProperty('--text-offset', `${offset}px`);
+ };
+ new ResizeObserver(align).observe(document.documentElement);
+ window.addEventListener('resize', align, { passive: true });
+ document.fonts.ready.then(align);
+ align();
 })();
