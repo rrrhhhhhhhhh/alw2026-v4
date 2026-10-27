@@ -58,17 +58,46 @@
  .opening-page .opening-nav { position:fixed; inset:105px 20px auto; justify-content:flex-start; gap:28px; font-size:40px; line-height:1.1; }
  .opening-page .opening-nav > a { min-height:44px; }
 }
-/* Main copy uses the art site's 27px scale; compact details use its 17px scale. */
-.sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a { font-size:27px; line-height:1.1; }
-.sketch-services .principles p, .sketch-services .principles h3 { font-size:17px; line-height:1.2; }
-.sketch-services #credits h3, .sketch-services #credits p { font-size:27px; }
-.sketch-services #credits .eyebrow { font-size:12px; color:#000; }
-.sketch-services .billing-note, .sketch-services > footer { font-size:17px; line-height:1.2; }
-.sketch-services .contact-email { font-size:27px; }
-@media(max-width:810px) {
- .sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a,
- .sketch-services #credits h3, .sketch-services #credits p, .sketch-services .contact-email { font-size:20px; }
- .sketch-services .principles p, .sketch-services .principles h3, .sketch-services .billing-note { font-size:17px; }
- .sketch-services #credits .eyebrow { font-size:12px; }
-}
+/* Measured from the sketch: 12pt copy on a 14.4pt baseline.
+   Use the art-site 17px scale with proportional text measures. */
+.sketch-services { --copy-size:17px; --copy-leading:20.4px; }
+.sketch-services p, .sketch-services h2, .sketch-services h3, .sketch-services a { font-size:var(--copy-size); line-height:var(--copy-leading); }
+.sketch-services .narrow, .sketch-services .section-intro { width:380px; max-width:calc(64.5vw - 36px); }
+.sketch-services .intro h2, .sketch-services .section-intro h2, .sketch-services #contact h2 { white-space:normal; }
+.sketch-services .principles { width:430px; max-width:100%; padding-top:24px; }
+.sketch-services .principles h3 { font-weight:600; }
+.sketch-services #credits h3, .sketch-services #credits p { font-size:17px; line-height:20.4px; }
+.sketch-services #credits .eyebrow { font-size:9px; line-height:12px; color:#000; margin-bottom:10px; }
+.sketch-services #credits article { margin-bottom:28px; }
+.sketch-services .opening-copy { padding-bottom:56px; }
+.sketch-services .offer-grid article { padding:14px 24px; }
+.sketch-services .offer-grid article > h3, .sketch-services .offer-grid article > p { width:240px; max-width:100%; }
+.sketch-services .offer-grid article > h3 { min-height:20.4px; margin-bottom:20.4px; }
+.sketch-services .offer-grid article > p:not(.price) { margin-bottom:20.4px; }
+.sketch-services .offer-grid .price { padding-top:0; }
+.sketch-services .offer-grid:not(.process-grid) { grid-auto-rows:minmax(222px,1fr); }
+.sketch-services .process-grid article { min-height:200px; }
+.sketch-services .process-grid h3 { font-size:17px; margin-bottom:70px; }
+.sketch-services .process-grid p { margin-bottom:0!important; }
 .sketch-services #consulting.ruled-section, .sketch-services #teams.ruled-section, .sketch-services #styling.ruled-section { border-top:1px solid #000; padding-top:44px; }
+.sketch-services .billing-note { font-size:12px; line-height:16px; }
+.sketch-services .contact-email { font-size:17px; }
+@media(max-width:810px) {
+ .sketch-services .narrow, .sketch-services .section-intro { width:100%; max-width:none; }
+ .sketch-services .offer-grid:not(.process-grid) { grid-auto-rows:auto; }
+ .sketch-services .offer-grid article { padding:24px 0; }
+ .sketch-services .offer-grid article > h3, .sketch-services .offer-grid article > p { width:100%; }
+ .sketch-services .process-grid article { min-height:0; }
+ .sketch-services .process-grid h3 { margin-bottom:20px; }
+}
+/* Keep the sketch's column-to-type proportions on wide screens. */
+.sketch-services { width:calc(100% - 24px); max-width:840px; margin-left:auto; margin-right:auto; }
+.sketch-services .narrow, .sketch-services .section-intro { margin-left:35.8%; max-width:64.2%; }
+.sketch-services .offer-grid article { padding-left:14px; padding-right:14px; }
+.sketch-services .process-title { margin-left:35.8%; }
+@media(max-width:810px) {
+ .sketch-services { width:auto; margin-left:20px; margin-right:20px; }
+ .sketch-services .narrow, .sketch-services .section-intro { margin-left:0; max-width:100%; }
+ .sketch-services .process-title { margin-left:0; }
+ .sketch-services .offer-grid article { padding-left:0; padding-right:0; }
+}
