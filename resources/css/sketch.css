@@ -130,7 +130,7 @@
  .sketch-services .process-grid article > h3 { min-height:0; margin-bottom:16px; }
 }
 
-/* Page-wide rules and footer are independent of the centered service grids. */
+/* Rules follow the centered grid; the footer keeps its wider placement. */
 .sketch-services { --page-rule-width:calc(100vw - 48px); }
 .sketch-services .ruled-section,
 .sketch-services #consulting.ruled-section,
@@ -138,10 +138,10 @@
 .sketch-services #styling.ruled-section { position:relative; border-top:0; }
 .sketch-services .ruled-section::before {
  content:""; position:absolute; height:1px; background:#000;
- width:var(--page-rule-width); top:0; left:50%; transform:translateX(-50%);
+ width:100%; top:0; left:0; transform:none;
 }
 .sketch-services .offer-grid:has(article:nth-child(4))::before {
- left:50%; right:auto; width:var(--page-rule-width); transform:translateX(-50%);
+ left:0; right:0; width:auto; transform:none;
 }
 /* The source art kit supplies regular and italic only. Explicit weight synthesis
    plus a fine same-color stroke makes the annotated bold emphasis unambiguous. */
@@ -170,3 +170,7 @@
  }
  .sketch-services .offer-grid article:nth-child(n+4)::after { top:0; }
 }
+
+/* Contact links reuse the earlier blue accent. */
+.sketch-services #contact .contact-email,
+.sketch-services #contact .contact-instagram { color:#0000ff; text-decoration:underline; }
