@@ -186,3 +186,11 @@
 @media(max-width:810px) {
  .sketch-services .offer-grid article { padding-left:16px; padding-right:16px; }
 }
+
+/* A consistent 12px content inset measured from the visible gray surface. */
+.services-page { --card-content-inset:12px; }
+.sketch-services .offer-grid article {
+ padding:calc(var(--card-inset) + var(--card-content-inset));
+}
+.sketch-services .offer-grid article > h3,
+.sketch-services .offer-grid article > p { width:100%; max-width:100%; }
