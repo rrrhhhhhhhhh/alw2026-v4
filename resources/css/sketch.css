@@ -129,3 +129,44 @@
  .sketch-services .process-grid article { min-height:0; }
  .sketch-services .process-grid article > h3 { min-height:0; margin-bottom:16px; }
 }
+
+/* Page-wide rules and footer are independent of the centered service grids. */
+.sketch-services { --page-rule-width:calc(100vw - 48px); }
+.sketch-services .ruled-section,
+.sketch-services #consulting.ruled-section,
+.sketch-services #teams.ruled-section,
+.sketch-services #styling.ruled-section { position:relative; border-top:0; }
+.sketch-services .ruled-section::before {
+ content:""; position:absolute; height:1px; background:#000;
+ width:var(--page-rule-width); top:0; left:50%; transform:translateX(-50%);
+}
+.sketch-services .offer-grid:has(article:nth-child(4))::before {
+ left:50%; right:auto; width:var(--page-rule-width); transform:translateX(-50%);
+}
+/* The source art kit supplies regular and italic only. Explicit weight synthesis
+   plus a fine same-color stroke makes the annotated bold emphasis unambiguous. */
+.sketch-services .principles h3, .sketch-services .step-number {
+ font-family:"adobe-caslon-pro",serif; font-weight:700; font-synthesis:weight;
+ -webkit-text-stroke:0.25px currentColor;
+}
+.sketch-services .process-grid h3 { font-weight:400; -webkit-text-stroke:0; }
+.sketch-services > footer {
+ position:relative; width:var(--page-rule-width); left:50%; transform:translateX(-50%);
+ display:flex; justify-content:space-between; align-items:baseline;
+ font-family:"adobe-caslon-pro",serif; font-size:12px; line-height:1.2;
+ padding:0 24px 30px; border:0;
+}
+.sketch-services > footer span { font-family:inherit; font-size:inherit; }
+@media(max-width:810px) {
+ .sketch-services { --page-rule-width:calc(100vw - 40px); }
+ .sketch-services > footer { width:100%; left:0; transform:none; padding:0 0 24px; flex-direction:column; }
+}
+
+/* Start column separators at the headings, and join subsequent rows cleanly. */
+@media(min-width:811px) {
+ .sketch-services .offer-grid article { position:relative; border-right:0; }
+ .sketch-services .offer-grid article:not(:nth-child(3n))::after {
+  content:""; position:absolute; top:16px; bottom:0; right:0; width:1px; background:#000;
+ }
+ .sketch-services .offer-grid article:nth-child(n+4)::after { top:0; }
+}
