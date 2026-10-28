@@ -175,44 +175,14 @@
 .sketch-services #contact .contact-email,
 .sketch-services #contact .contact-instagram { color:#0000ff; text-decoration:underline; }
 
-/* Sketch 4: shared spacing and surfaces, without changing the service grid. */
-.services-page {
- --space-1:4px; --space-2:8px; --space-3:12px;
- --space-4:16px; --space-5:20px; --space-6:24px;
- --bubble-radius:12px; --rule:1px solid #000; --bubble-fill:#f5f5f5;
-}
-.services-page .section-nav a {
- background:var(--bubble-fill); border-radius:var(--space-2);
- padding:var(--space-2) var(--space-3);
-}
-.sketch-services #credits {
- width:max-content; max-width:100%; border:var(--rule);
- border-radius:var(--bubble-radius); background:transparent;
- padding:var(--space-4); margin-top:var(--space-6);
-}
-.sketch-services #credits article { margin-bottom:var(--space-6); }
-.sketch-services #credits article:last-child { margin-bottom:0; }
+/* Service-option surfaces follow the PDF; header and introductory text stay plain. */
+.services-page { --card-inset:6px; --card-radius:16px; --card-fill:#efefef; }
 .sketch-services #credits h3 i { font:inherit; font-style:italic; }
-.sketch-services .principles {
- width:100%; border:var(--rule); border-radius:var(--bubble-radius);
- background:transparent; padding:var(--space-4);
- margin:var(--space-6) 0 calc(var(--space-6) * 2);
-}
-.sketch-services .principles article { margin-bottom:var(--space-5); }
-.sketch-services .principles article:last-child { margin-bottom:0; }
-.sketch-services .principles h3 { margin-bottom:var(--space-1); }
-/* Inset fills preserve column widths, text positions, and separator endpoints. */
-.sketch-services .offer-grid article { position:relative; isolation:isolate; padding:var(--space-4); }
+.sketch-services .offer-grid article { position:relative; isolation:isolate; }
 .sketch-services .offer-grid article::before {
- content:""; position:absolute; inset:var(--space-1);
- border-radius:var(--bubble-radius); background:var(--bubble-fill); z-index:-1;
+ content:""; position:absolute; inset:var(--card-inset);
+ border-radius:var(--card-radius); background:var(--card-fill); z-index:-1;
 }
-.sketch-services .offer-grid article > h3 { margin-bottom:var(--space-4); }
-.sketch-services .offer-grid article > p:not(.price) { margin-bottom:var(--space-5); }
-.sketch-services .process-grid article > h3 { margin-bottom:calc(var(--space-4) * 2); }
 @media(max-width:810px) {
- .services-page .section-nav { gap:var(--space-2); }
- .services-page .section-nav a { padding:var(--space-2); }
- .sketch-services .offer-grid article { padding-left:var(--space-4); padding-right:var(--space-4); }
- .sketch-services .process-grid article > h3 { margin-bottom:var(--space-4); }
+ .sketch-services .offer-grid article { padding-left:16px; padding-right:16px; }
 }
