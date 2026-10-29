@@ -216,3 +216,46 @@
 /* Anchor destinations follow the measured fixed header, including wrapped menus. */
 .sketch-services .ruled-section,
 .sketch-services #contact { scroll-margin-top:calc(var(--header-height, 100px) + 16px); }
+
+/* Responsive spacing trial: remove this block to restore the preceding layout. */
+@media(max-width:1100px) {
+ .sketch-services {
+  --section-space:32px;
+  width:calc(100% - 64px); margin-left:auto; margin-right:auto;
+  padding-top:calc(var(--header-height, 114px) + var(--section-space));
+ }
+ .sketch-services .ruled-section,
+ .sketch-services #consulting.ruled-section,
+ .sketch-services #teams.ruled-section,
+ .sketch-services #styling.ruled-section { padding-top:var(--section-space); }
+ .sketch-services .opening-copy { padding-bottom:var(--section-space); }
+ .sketch-services .principles { padding-bottom:var(--section-space); }
+ .sketch-services .section-intro { padding-bottom:var(--section-space); }
+ .sketch-services .process-title { margin-top:var(--section-space); margin-bottom:var(--section-space); }
+ .sketch-services #styling { padding-bottom:var(--section-space); }
+ .sketch-services .offer-grid,
+ .sketch-services .offer-grid:not(.process-grid) { grid-auto-rows:auto; background:none!important; }
+ .sketch-services .offer-grid:has(article:nth-child(4))::before { display:none; }
+ .sketch-services .offer-grid article,
+ .sketch-services .offer-grid article:nth-child(n+4) { min-height:0; border:0; }
+ .sketch-services .offer-grid article::after { display:none; }
+ .sketch-services .offer-grid article > h3 { min-height:0; margin-bottom:16px; }
+ .sketch-services .offer-grid article > p:not(.price) { margin-bottom:20px; }
+ .sketch-services .process-grid article > p { margin-top:0; }
+ .sketch-services .billing-note { grid-column:1 / -1; grid-row:auto; padding:16px 18px; }
+}
+@media(min-width:600px) and (max-width:1100px) {
+ .sketch-services .offer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .sketch-services .offer-grid article:nth-child(n+3) { border-top:1px solid #000; }
+ .sketch-services .offer-grid article:nth-child(odd)::after {
+  display:block; content:""; position:absolute; right:0; top:16px; bottom:16px;
+  width:1px; background:#000;
+ }
+ .sketch-services .offer-grid article:nth-child(odd):has(+ article)::after { top:16px; bottom:16px; }
+ .sketch-services .offer-grid article:last-child:nth-child(odd)::after { display:none; }
+}
+@media(max-width:599px) {
+ .sketch-services { width:calc(100% - 40px); }
+ .sketch-services .offer-grid { grid-template-columns:1fr; }
+ .sketch-services .offer-grid article + article { border-top:1px solid #000; }
+}
