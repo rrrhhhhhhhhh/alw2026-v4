@@ -21,12 +21,16 @@
 (() => {
  const main = document.querySelector('.sketch-services');
  const nav = document.querySelector('.section-nav');
+ const header = document.querySelector('header');
  if (!main || !nav) return;
  const align = () => {
   const offset = Math.max(0, nav.getBoundingClientRect().left - main.getBoundingClientRect().left);
   main.style.setProperty('--text-offset', `${offset}px`);
+  if (header) main.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
  };
- new ResizeObserver(align).observe(document.documentElement);
+ const observer = new ResizeObserver(align);
+ observer.observe(document.documentElement);
+ if (header) observer.observe(header);
  window.addEventListener('resize', align, { passive: true });
  document.fonts.ready.then(align);
  align();
