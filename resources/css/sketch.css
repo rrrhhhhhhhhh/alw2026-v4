@@ -263,3 +263,11 @@
  .sketch-services .offer-grid { grid-template-columns:1fr; }
  .sketch-services .offer-grid article + article { border-top:0; }
 }
+
+/* Equal breathing room around section rules on phones and tablets. */
+@media(max-width:1100px) {
+ .sketch-services .principles article:last-child { margin-bottom:0; }
+ .sketch-services #consulting,
+ .sketch-services #teams { padding-bottom:calc(var(--section-space) - var(--card-inset)); }
+ .sketch-services #styling .billing-note { padding-bottom:0; margin-bottom:0; }
+}
