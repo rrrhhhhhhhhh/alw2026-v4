@@ -162,13 +162,16 @@
  .sketch-services > footer { width:100%; left:0; transform:none; padding:0 0 24px; flex-direction:column; }
 }
 
-/* Start column separators at the headings, and join subsequent rows cleanly. */
+/* Match the exposed top/bottom ends; interior row joins stay continuous. */
 @media(min-width:811px) {
+ .sketch-services { --grid-end-inset:16px; }
  .sketch-services .offer-grid article { position:relative; border-right:0; }
  .sketch-services .offer-grid article:not(:nth-child(3n))::after {
-  content:""; position:absolute; top:16px; bottom:0; right:0; width:1px; background:#000;
+  content:""; position:absolute; top:var(--grid-end-inset); bottom:0; right:0; width:1px; background:#000;
  }
  .sketch-services .offer-grid article:nth-child(n+4)::after { top:0; }
+ .sketch-services #consulting > .offer-grid:not(.process-grid) article:nth-child(n+4)::after,
+ .sketch-services #styling > .offer-grid article:nth-child(n+4)::after { bottom:var(--grid-end-inset); }
 }
 
 /* Contact links reuse the earlier blue accent. */
